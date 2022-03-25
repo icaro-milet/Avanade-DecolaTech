@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-AppService", "0-AppService", "{2DDE3A8B-1828-4510-A705-7B37882BB8A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avanade.Arquitetura.DecolaTech.API", "Avanade.Arquitetura.DecolaTech.API\Avanade.Arquitetura.DecolaTech.API.csproj", "{4CE4234C-66D5-4CCA-A608-87DB53C26242}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Domain", "1-Domain", "{0ED07FAD-D9AA-4996-AD3A-B85828849CB4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-Infra", "2-Infra", "{22A9E676-79B3-4EB1-BD91-6BA710210897}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-Tests", "3-Tests", "{8CF2CCED-7443-4451-AA43-FF3A21A2E8AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avanade.Arquitetura.DecolaTech.Domain", "Avanade.Arquitetura.DecolaTech.Domain\Avanade.Arquitetura.DecolaTech.Domain.csproj", "{E74B4430-C71B-43D0-88AA-6594398FDA02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avanade.Arquitetura.DecolaTech.Infra.Database", "Avanade.Arquitetura.DecolaTech.Infra.Database\Avanade.Arquitetura.DecolaTech.Infra.Database.csproj", "{16C1716D-427B-4896-82C8-1B010F724620}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4CE4234C-66D5-4CCA-A608-87DB53C26242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE4234C-66D5-4CCA-A608-87DB53C26242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE4234C-66D5-4CCA-A608-87DB53C26242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE4234C-66D5-4CCA-A608-87DB53C26242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E74B4430-C71B-43D0-88AA-6594398FDA02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E74B4430-C71B-43D0-88AA-6594398FDA02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E74B4430-C71B-43D0-88AA-6594398FDA02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E74B4430-C71B-43D0-88AA-6594398FDA02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16C1716D-427B-4896-82C8-1B010F724620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16C1716D-427B-4896-82C8-1B010F724620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16C1716D-427B-4896-82C8-1B010F724620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16C1716D-427B-4896-82C8-1B010F724620}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4CE4234C-66D5-4CCA-A608-87DB53C26242} = {2DDE3A8B-1828-4510-A705-7B37882BB8A1}
+		{E74B4430-C71B-43D0-88AA-6594398FDA02} = {0ED07FAD-D9AA-4996-AD3A-B85828849CB4}
+		{16C1716D-427B-4896-82C8-1B010F724620} = {22A9E676-79B3-4EB1-BD91-6BA710210897}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F87EA9BB-D9AC-4E4F-87B0-5694BE2AB723}
+	EndGlobalSection
+EndGlobal
