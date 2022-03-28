@@ -1,4 +1,6 @@
-﻿using Avanade.Arquitetura.DecolaTech.Infra.Database;
+﻿using Avanade.Arquitetura.DecolaTech.Domain.Entidades;
+using Avanade.Arquitetura.DecolaTech.Domain.Interfaces;
+using Avanade.Arquitetura.DecolaTech.Infra.Database;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Avanade.Arquitetura.DecolaTech.API.Controllers
@@ -9,49 +11,44 @@ namespace Avanade.Arquitetura.DecolaTech.API.Controllers
     {
         private readonly ILogger<PessoaController> _logger;
 
-        public PessoaController(ILogger<PessoaController> logger)
+        private readonly IRepositorio<Pessoa> _repositorio;
+
+        public PessoaController(
+            ILogger<PessoaController> logger,
+            IRepositorio<Pessoa> repositorio)
         {
             _logger = logger;
+            _repositorio = repositorio;
         }
 
         [HttpGet]
         public IEnumerable<Domain.Entidades.Pessoa> Obter()
         {
-            PessoaRepositorio pessoaRepositorio = new();
-
-            return pessoaRepositorio.Listar();
+            return _repositorio.Listar();
         }
 
         [HttpGet("{id}")]
         public Domain.Entidades.Pessoa ObterPorId([FromRoute] int id)
         {
-            PessoaRepositorio pessoaRepositorio = new();
-
-            return pessoaRepositorio.ObterPorId(id);
+            return _repositorio.ObterPorId(id);
         }
 
         [HttpPost]
         public void CadastrarPessoa([FromBody] Domain.Entidades.Pessoa pessoa)
         {
-            PessoaRepositorio pessoaRepositorio = new();
-
-            pessoaRepositorio.CadastrarPessoa(pessoa);
+            _repositorio.Cadastrar(pessoa);
         }
 
         [HttpPut("{id}")]
         public void AtualizarPessoa([FromRoute] int id, [FromBody] Domain.Entidades.Pessoa pessoa)
         {
-            PessoaRepositorio pessoaRepositorio = new();
-
-            pessoaRepositorio.AtualizarPessoa(id, pessoa);
+            _repositorio.Atualizar(id, pessoa);
         }
 
         [HttpDelete("{id}")]
         public void DeletarPessoa([FromRoute] int id)
         {
-            PessoaRepositorio pessoaRepositorio = new();
-
-            pessoaRepositorio.DeletarPessoa(id);
+            _repositorio.Deletar(id);
         }
     }
 }

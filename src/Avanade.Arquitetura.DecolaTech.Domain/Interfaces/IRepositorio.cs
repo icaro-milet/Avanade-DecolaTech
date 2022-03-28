@@ -1,6 +1,6 @@
 ﻿namespace Avanade.Arquitetura.DecolaTech.Domain.Interfaces
 {
-    internal interface IRepositorio<TEntity>
+    public interface IRepositorio<TEntity>
     {
         IEnumerable<TEntity> Listar();
 

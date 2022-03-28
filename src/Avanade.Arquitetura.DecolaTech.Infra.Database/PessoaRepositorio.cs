@@ -1,54 +1,52 @@
-﻿namespace Avanade.Arquitetura.DecolaTech.Infra.Database
-{
-    public class PessoaRepositorio
-    {
-        private readonly string _connMongo;
-        private readonly string _databaseMongo;
+﻿using Avanade.Arquitetura.DecolaTech.Domain.Entidades;
+using Avanade.Arquitetura.DecolaTech.Domain.Interfaces;
 
-        static List<Domain.Entidades.Pessoa> banco = new List<Domain.Entidades.Pessoa>();
+namespace Avanade.Arquitetura.DecolaTech.Infra.Database
+{
+    public class PessoaRepositorio : IRepositorio<Pessoa>
+    {
+        List<Domain.Entidades.Pessoa> _banco;
 
         public PessoaRepositorio()
         {
-
+            _banco = new List<Domain.Entidades.Pessoa>();
         }
 
-        public IEnumerable<Domain.Entidades.Pessoa> Listar() 
+        public void Atualizar(int id, Pessoa entidade)
         {
-            return banco.ToList();
-        }
-
-        public Domain.Entidades.Pessoa ObterPorId(int idPessoa) 
-        {
-            return banco.FirstOrDefault(x => x.Id == idPessoa);
-        }
-
-        public void CadastrarPessoa(Domain.Entidades.Pessoa pessoa) 
-        {
-            banco.Add(pessoa);
-        }
-
-        public void AtualizarPessoa(int idPessoa, Domain.Entidades.Pessoa pessoa)
-        {
-            var item = banco.FirstOrDefault(p => p.Id == idPessoa);
+            var item = _banco.FirstOrDefault(p => p.Id == id);
 
             if (item is not null)
             {
-                item.Nascimento = pessoa.Nascimento;
-                item.Nome = pessoa.Nome;
-                item.Salario = pessoa.Salario;
-                item.Trem = pessoa.Trem;
+                item.Nascimento = entidade.Nascimento;
+                item.Nome = entidade.Nome;
+                item.Salario = entidade.Salario;
+                item.Trem = entidade.Trem;
             }
             else
             {
-                throw new Exception($"Pessoa id {idPessoa} não existe na base de dados.");
+                throw new Exception($"Entidade id {id} não existe na base de dados");
             }
         }
 
-        public void DeletarPessoa(int idPessoa)
+        public void Cadastrar(Pessoa entidade)
         {
-            var pessoa = banco.FirstOrDefault(p => p.Id == idPessoa);
+            _banco.Add(entidade);
+        }
 
-            banco.Remove(pessoa);
+        public void Deletar(int id)
+        {
+            _banco.Remove(_banco.FirstOrDefault(p => p.Id == id));
+        }
+
+        public IEnumerable<Pessoa> Listar()
+        {
+            return _banco.ToList();
+        }
+
+        public Pessoa ObterPorId(int id)
+        {
+            return _banco.FirstOrDefault(p => p.Id == id);
         }
 
     }
